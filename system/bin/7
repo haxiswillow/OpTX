@@ -1,0 +1,41 @@
+#!/system/bin/sh
+clear
+sleep 1
+
+# touch
+setprop touch.pressure.scale 0.001
+setprop persist.sys.ui.hw 1
+setprop touch.size.calibration diameter
+setprop touch.size.scale 1
+setprop touch.size.bias 0
+setprop touch.size.isSummed 0
+setprop touch.orientation.calibration none
+setprop touch.distance.calibration none
+setprop touch.distance.scale 0
+setprop touch.coverage.calibration box
+setprop ouch.gestureMode spots
+setprop MultitouchMinDistance 1px
+setprop MultitouchSettleInterval 1ms
+setprop TapInterval 1ms
+setprop TapSlop 1px
+setprop qemu.sf.lcd_density 270
+setprop debug.sf.hw 1
+setprop debug.composition.type gpu
+setprop ro.product.multi_touch_enabled true
+setprop ro.product.max_num_touch 5
+setprop debug.performance.tuning 1
+setprop video.accelerate.hw 1
+setprop ro.min_pointer_dur 8
+setprop touch.deviceType touchScreen
+setprop debug.egl.hw 1
+setprop video.accelerate.hw 1
+setprop view.touch_slop 1
+setprop ro.max.fling_velocity 12000
+setprop ro.min.fling_velocity 8000
+setprop sys.use_fifo_ui 1
+setprop pm.dexopt.bg-dexopt speed-profile
+setprop pm.dexopt.shared speed
+
+echo -n "=========================>Pronto<==========================";
+sleep 2
+help

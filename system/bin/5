@@ -1,0 +1,24 @@
+#!/system/bin/sh
+
+clear
+echo
+sleep 2
+echo ""
+free | awk '/Mem/{print "Memória livre antes de impulsionar : "$4/1024" MB";}'
+echo "";
+echo -n "====> Impulsionando seu Android !! Por favor, aguarde!!";
+sync;
+echo -n ".";
+sleep 1
+echo "3" > /proc/sys/vm/drop_caches;
+sleep 1
+echo -n ".";
+echo "";
+echo "====> Eliminando todos os caches"
+sleep 2
+echo ""
+echo "====> Feito!!! Seu dispositivo agora está otimizado !!";
+echo "";
+free | awk '/Mem/{print "Memória livre após impulso! : "$4/1024" MB";}'
+sleep 2
+help

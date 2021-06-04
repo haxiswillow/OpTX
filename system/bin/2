@@ -1,0 +1,48 @@
+#!/system/bin/sh
+clear
+sleep 1
+
+# CPU BIG
+
+# hispeed_freq
+chmod 644 /sys/devices/system/cpu/cpu6/cpufreq/interactive/hispeed_freq
+echo '2184000' > /sys/devices/system/cpu/cpu6/cpufreq/interactive/hispeed_freq
+
+# CPU freq max limit
+chmod 644 /sys/devices/system/cpu/cpu6/cpufreq/scaling_max_freq
+echo '2184000' > /sys/devices/system/cpu/cpu6/cpufreq/scaling_max_freq
+chmod 444 /sys/devices/system/cpu/cpu6/cpufreq/scaling_max_freq
+
+# CPU LITTLE
+
+# hispeed_freq
+chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq
+echo '1690000' > /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq
+
+# CPU freq max limit
+chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+echo '1690000' > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+chmod 444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+
+# CPU Power efficient
+chmod 644 /sys/module/workqueue/parameters/power_efficient
+echo 'N' > /sys/module/workqueue/parameters/power_efficient
+
+# HMP
+echo '524' > /sys/kernel/hmp/up_threshold
+echo '312' > /sys/kernel/hmp/down_threshold
+
+# GPU
+echo '1200000' > /sys/kernel/gpu/gpu_max_clock
+echo '1200000' > /sys/kernel/gpu/gpu_min_clock
+echo '1200000' > /sys/devices/platform/11500000.mali/highspeed_clock
+echo '75' > /sys/devices/platform/11500000.mali/highspeed_load
+echo '0' > /sys/devices/platform/11500000.mali/tmu
+echo 'always_on' > /sys/devices/platform/11500000.mali/power_policy
+
+# Extra
+setprop debug.performance.tuning 1
+
+echo -n "=========================>Pronto<==========================";
+sleep 2
+help

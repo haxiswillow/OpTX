@@ -1,0 +1,17 @@
+#!/system/bin/sh
+clear
+sleep 1
+wm size reset
+wm density reset
+SIZEX=$(echo $(wm size) | cut -d"x" -f1)
+SIZEX=$(echo $SIZEX | cut -d" " -f3)
+SIZEY=$(echo $(wm size) | cut -d"x" -f2)
+DENSITY=$(echo $(wm density) | cut -d" " -f3)
+NEW_SIZEY=$(echo "scale=4 ;"480*$SIZEY/$SIZEX | bc | cut -d"." -f1)
+NEW_SIZEX=$(echo "scale=4 ;"$NEW_SIZEY/\($SIZEY/$SIZEX\) | bc | cut -d"." -f1)
+NEW_DENSITY=$(echo "scale=4 ;"$DENSITY*\($NEW_SIZEY/$SIZEY\) | bc | cut -d"." -f1)
+wm size $NEW_SIZEX"x"$NEW_SIZEY
+wm density $NEW_DENSITY
+echo -n "=========================>Pronto<==========================";
+sleep 2
+help

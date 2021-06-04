@@ -1,0 +1,10 @@
+#!/system/bin/sh
+clear
+sleep 1
+
+wm size reset
+wm density reset
+
+echo -n "=========================>Pronto<==========================";
+sleep 2
+help
