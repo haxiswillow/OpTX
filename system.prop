@@ -1,0 +1,127 @@
+#========================================
+# OpTX
+# Developer : @_tio_mt_, @lorran, @dark
+# Base : Haxis
+#========================================
+
+# Auto Dimming Issues
+persist.sys.cabc.enable=0
+ro.service.cabc.supported=false
+
+# Disables locating
+ro.com.google.locationfeatures=0
+ro.com.google.networklocation=0
+
+# Disable strict mode checking
+persist.android.strictmode=0
+
+# Disables Built In Error Reporting
+profiler.force_disable_err_rpt=1
+profiler.force_disable_ulog=1
+
+# Disables Error Checking
+ro.kernel.android.checkjni=0
+ro.kernel.checkjni=0
+
+# Perf tuning support on
+debug.performance.tuning
+
+# HDR support on
+persist.sys.sf.color_saturation
+
+# Low Ram support on
+ro.config.low_ram
+
+# FPS Unlocker support on
+ro.product.model
+ro.product.odm.model
+ro.product.system.model
+ro.product.vendor.model
+ro.product.system_ext.model
+
+# FPS Stabilizer 
+debug.sf.showupdates=0 
+debug.sf.showcpu=0 
+debug.sf.showbackground=0 
+debug.sf.showfps=0
+
+# RAM
+ro.config.dha_cached_min=0
+ro.config.dha_cached_max=2
+ro.config.dha_empty_min=0
+ro.config.dha_empty_init=2
+ro.config.dha_empty_max=2
+ro.cfg.dha_cached_min=0
+ro.cfg.dha_cached_max=2
+ro.cfg.dha_empty_min=0
+ro.cfg.dha_empty_max=2
+ro.cfg.dha_empty_init=2
+
+# For speed
+persist.service.lgospd.enable=0
+persist.service.pcsync.enable=0
+profiler.force_disable_ulog=true
+profiler.force_disable_ulog=1
+profiler.force_disable_err_rpt=1
+profiler.force_disable_err_rpt=true
+profiler.hung.dumpdobugreport=false
+debugtool.anrhistory=0
+debug.mdpcomp.logs=0
+profiler.debugmonitor=false
+profiler.launch=false
+logcat.live=disable
+persist.camera.debug.logfile=0
+ro.config.nocheckin=1
+
+# Increase cached app limit
+ro.vendor.qti.sys.fw.bg_apps_limit=600
+ro.vendor.qti.sys.fw.bservice_limit=60
+
+# 16bit Transparency
+persist.sys.use_16bpp_alpha=1
+
+# GPU
+debug.hwui.renderer=opengl
+debug.composition.type=gpu
+debug.composition.type=c2d
+debug.enabletr=true
+dev.pm.dyn_samplingrate=1
+hw3d.force=1
+hwui.render_dirty_regions=false
+ro.config.enable.hw_accel=true
+ro.product.gpu.driver=1
+persist.sys.composition.type=c2d
+persist.sys.composition.type=gpu
+ro.fb.mode=1
+ro.vold.umsdirtyratio=60
+ro.sf.compbypass.enable=0
+video.accelerate.hw=1
+debug.gr.numframebuffers=3
+gpu.fps=60
+
+# Dalvik
+dalvik.vm.checkjni=false
+dalvik.vm.dexopt-data-only=1
+dalvik.vm.heapstartsize=8m
+dalvik.vm.heapgrowthlimit=256m
+dalvik.vm.heapsize=512m
+dalvik.vm.verify-bytecode=false dalvik.vm.execution-mode=int:jit dalvik.vm.lockprof.threshold=250
+dalvik.vm.dexopt-flags=m=v,o=y
+dalvik.vm.stack-trace-file=/data/anr/traces.txt dalvik.vm.jmiopts=forcecopy
+
+# Extra
+wifi.supplicant_scan_interval=600
+ro.config.hw_quickpoweron=true
+pm.sleep_mode=1
+
+# Misc
+persist.sys.purgeable_assets=1
+sys.mem.max_hidden_apps=2
+persist.sys.use_dithering=0
+
+# Fps boost
+vendor.debug.egl.swapinterval=1
+persist.sys.egl.swapinterval=1
+debug.gr.swapinterval=1
+vendor.debug.gr.swapinterval=1
+persist.sys.debug.gr.swapinterval=1
