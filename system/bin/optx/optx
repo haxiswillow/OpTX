@@ -1,0 +1,31 @@
+#!/system/bin/sh
+
+# Toda Vez que reiniciar Limpar o Cache.
+rm -f /cache/*.apk
+rm -f /cache/*.tmp
+
+# Remount each file system with noatime and nodiratime flags to save battery and CPU cycles
+
+sys=$(find /dev/block/platform -name system)
+dat=$(find /dev/block/platform -name data)
+udat=$(find /dev/block/platform -name userdata)
+cac=$(find /dev/block/platform -name cache)
+
+mount -o remount,noatime,nodelalloc,nodiratime,commit=900,noatime,noauto_da_alloc,barrier=0 $sys
+
+mount -o remount,noatime,nodelalloc,nodiratime,commit=900,noauto_da_alloc,barrier=0 $dat
+
+mount -o remount,noatime,nodelalloc,nodiratime,commit=900,noauto_da_alloc,barrier=0 $udat
+
+mount -o remount,noatime,nodelalloc,nodiratime,commit=900,noauto_da_alloc,barrier=0 $cac
+
+# Ext4 Lag Fix
+if ( mount | grep -w ext4 ) then
+	echo "EXT4 Partition Found!"
+	echo "Remounting..."
+	mount -o noatime,remount,rw,discard,barrier=0,commit=60,noauto_da_alloc,delalloc /cache /cache;
+	mount -o noatime,remount,rw,discard,barrier=0,commit=60,noauto_da_alloc,delalloc /data /data;
+	mount >> /data/adrenaline/engine/etc/fsck.log;
+else
+	echo "EXT4 Partition Not Found!"
+fi;

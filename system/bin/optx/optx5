@@ -1,0 +1,188 @@
+#!/system/bin/sh
+sleep 10
+
+# CPU BIG
+
+# CPU freq max limit
+chmod 644 /sys/devices/system/cpu/cpu6/cpufreq/scaling_max_freq
+echo '2184000' > /sys/devices/system/cpu/cpu6/cpufreq/scaling_max_freq
+chmod 444 /sys/devices/system/cpu/cpu6/cpufreq/scaling_max_freq
+
+# above_hispeed_delay
+chmod 644 /sys/devices/system/cpu/cpu6/cpufreq/interactive/above_hispeed_delay
+echo '19000 2184000:79000' > /sys/devices/system/cpu/cpu6/cpufreq/interactive/above_hispeed_delay
+
+# boost
+chmod 644 /sys/devices/system/cpu/cpu6/cpufreq/interactive/boost
+echo '0' > /sys/devices/system/cpu/cpu6/cpufreq/interactive/boost
+
+# boostpulse_duration
+chmod 644 /sys/devices/system/cpu/cpu6/cpufreq/interactive/boostpulse_duration
+echo '40000' > /sys/devices/system/cpu/cpu6/cpufreq/interactive/boostpulse_duration
+
+# go_hispeed_load
+chmod 644 /sys/devices/system/cpu/cpu6/cpufreq/interactive/go_hispeed_load
+echo '89' > /sys/devices/system/cpu/cpu6/cpufreq/interactive/go_hispeed_load
+
+# hispeed_freq
+chmod 644 /sys/devices/system/cpu/cpu6/cpufreq/interactive/hispeed_freq
+echo '1144000' > /sys/devices/system/cpu/cpu6/cpufreq/interactive/hispeed_freq
+
+# io_is_busy
+chmod 644 /sys/devices/system/cpu/cpu6/cpufreq/interactive/io_is_busy
+echo '0' > /sys/devices/system/cpu/cpu6/cpufreq/interactive/io_is_busy
+
+# min_sample_time
+chmod 644 /sys/devices/system/cpu/cpu6/cpufreq/interactive/min_sample_time
+echo '40000' > /sys/devices/system/cpu/cpu6/cpufreq/interactive/min_sample_time
+
+# target_loads
+chmod 644 /sys/devices/system/cpu/cpu6/cpufreq/interactive/target_loads
+echo '80' > /sys/devices/system/cpu/cpu6/cpufreq/interactive/target_loads
+
+# timer_rate
+chmod 644 /sys/devices/system/cpu/cpu6/cpufreq/interactive/timer_rate
+echo '20000' > /sys/devices/system/cpu/cpu6/cpufreq/interactive/timer_rate
+
+# timer_slack
+chmod 644 /sys/devices/system/cpu/cpu6/cpufreq/interactive/timer_slack
+echo '20000' > /sys/devices/system/cpu/cpu6/cpufreq/interactive/timer_slack
+
+# CPU LITTLE
+
+# CPU freq max limit
+chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+echo '1690000' > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+chmod 444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+
+# above_hispeed_delay
+chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay
+echo '19000 1690000:79000' > /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay
+
+# boost
+chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/interactive/boost
+echo '0' > /sys/devices/system/cpu/cpu0/cpufreq/interactive/boost
+
+# boostpulse_duration
+chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/interactive/boostpulse_duration
+echo '40000' > /sys/devices/system/cpu/cpu0/cpufreq/interactive/boostpulse_duration
+
+# go_hispeed_load
+chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load
+echo '89' > /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load
+
+# hispeed_freq
+chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq
+echo '1144000' > /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq
+
+# io_is_busy
+chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy
+echo '0' > /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy
+
+# min_sample_time
+chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time
+echo '40000' > /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time
+
+# target_loads
+chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
+echo '80' > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
+
+# timer_rate
+chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate
+echo '20000' > /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate
+
+# timer_slack
+chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_slack
+echo '20000' > /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_slack
+
+# CPU Power efficient
+chmod 644 /sys/module/workqueue/parameters/power_efficient
+echo 'Y' > /sys/module/workqueue/parameters/power_efficient
+
+# CPU HOTPLUG
+echo '1' > /sys/power/cpuhotplug/enabled
+
+# HMP
+echo '524' > /sys/kernel/hmp/up_threshold
+echo '312' > /sys/kernel/hmp/down_threshold
+echo '0' > /sys/kernel/hmp/aggressive_up_migration
+echo '1' > /sys/kernel/hmp/active_down_migration
+echo '0' > /sys/kernel/hmp/packing_enable
+
+# CPU BOOST test
+echo '3' > /sys/class/input_booster/level
+
+# GPU
+echo '1200000' > /sys/kernel/gpu/gpu_max_clock
+echo '343000' > /sys/kernel/gpu/gpu_min_clock
+echo '1200000' > /sys/devices/platform/11500000.mali/highspeed_clock
+echo '75' > /sys/devices/platform/11500000.mali/highspeed_load
+echo '0' > /sys/devices/platform/11500000.mali/tmu
+echo 'coarse_demand' > /sys/devices/platform/11500000.mali/power_policy
+
+# BATERIA
+echo '0' > /sys/class/sec/switch/afc_disable
+
+# I/O
+echo 'noop' > /sys/block/mmcblk0/queue/scheduler
+echo '0' > /sys/block/mmcblk0/queue/iostats
+echo '0' > /sys/block/mmcblk0/queue/add_random
+echo '2' > /sys/block/mmcblk0/queue/nomerges
+echo '4' > /sys/block/mmcblk0/queue/nr_requests
+echo '1' > /sys/block/mmcblk0/queue/rq_affinity
+
+echo 'noop' > /sys/block/mmcblk1/queue/scheduler
+echo '0' > /sys/block/mmcblk1/queue/iostats
+echo '0' > /sys/block/mmcblk1/queue/add_random
+echo '2' > /sys/block/mmcblk1/queue/nomerges
+echo '4' > /sys/block/mmcblk1/queue/nr_requests
+echo '1' > /sys/block/mmcblk1/queue/rq_affinity
+
+# UKSM KSM
+echo '0' > /sys/kernel/mm/uksm/run
+echo '0' > /sys/kernel/mm/ksm/run
+
+# LMK
+chmod 666 /sys/module/lowmemorykiller/parameters/minfree
+chown root /sys/module/lowmemorykiller/parameters/minfree
+echo '256,7680,21760,21760,21760,21760' > /sys/module/lowmemorykiller/parameters/minfree
+echo '0,1,2,4,8,16' > /sys/module/lowmemorykiller/parameters/adj
+
+# WAKELOCK
+echo 'N' > /sys/module/wakeup/parameters/enable_wlan_wake_wl
+echo 'N' > /sys/module/wakeup/parameters/enable_bluedroid_timer_wl
+
+# MEMORIA
+echo '130' > /proc/sys/vm/swappiness
+echo '1024' > /proc/sys/vm/min_free_kbytes
+echo '4462' > /proc/sys/vm/extra_free_kbytes
+echo '10' > /proc/sys/vm/dirty_ratio
+echo '5' > /proc/sys/vm/dirty_background_ratio
+echo '500' > /proc/sys/vm/dirty_expire_centisecs
+echo '2000' > /proc/sys/vm/dirty_writeback_centisecs
+echo '10' > /proc/sys/vm/dirtytime_expire_seconds
+echo '150' > /proc/sys/vm/extfrag_threshold
+echo '0' > /proc/sys/vm/laptop_mode
+echo '1' > /proc/sys/vm/lowmem_reserve_ratio
+echo '200' > /proc/sys/vm/vfs_cache_pressure
+echo '1024' > /proc/sys/vm/user_reserve_kbytes
+echo '1024' > /proc/sys/vm/admin_reserve_kbytes
+echo '20' > /proc/sys/vm/stat_interval
+echo '0' > /proc/sys/vm/page-cluster
+echo '0' > /proc/sys/vm/overcommit_ratio
+echo '0' > /proc/sys/vm/percpu_pagelist_fraction
+echo '1' > /proc/sys/fs/leases-enable
+echo '10' > /proc/sys/fs/lease-break-time
+echo '0' > /proc/sys/fs/dir-notify-enable
+
+# Zram
+swapoff /dev/block/zram0 > /dev/null 2>&1
+echo '1' > /sys/block/zram0/reset
+echo '0' > /sys/block/zram0/disksize
+
+# ENTROPIA
+echo '64' > /proc/sys/kernel/random/read_wakeup_threshold
+echo '64' > /proc/sys/kernel/random/write_wakeup_threshold
+
+# DIVERSOS
+sysctl -w net.ipv4.tcp_congestion_control=westwood
