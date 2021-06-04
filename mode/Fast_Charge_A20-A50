@@ -1,0 +1,7 @@
+#!/system/bin/sh
+
+cmmod 664 /sys/class/power_supply/battery/batt_tune_fast_charge_current
+echo '2400' > /sys/class/power_supply/battery/batt_tune_fast_charge_current
+
+chmod 664 /sys/class/power_supply/battery/batt_tune_input_charge_current
+echo '1800' > /sys/class/power_supply/battery/batt_tune_input_charge_current
